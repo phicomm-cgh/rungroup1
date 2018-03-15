@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="批量执行接口测试用例--verygood" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1480916964000</longProp>
+        <longProp name="ThreadGroup.end_time">1480916964000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP请求默认值" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${domain}</stringProp>
+          <stringProp name="HTTPSampler.port">${port}</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">4</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="仅一次控制器" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP请求" enabled="false">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="username" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">youyou</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">username</stringProp>
+                </elementProp>
+                <elementProp name="password" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">mm</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">password</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/LoginController/login</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout">${timeout}</stringProp>
+            <stringProp name="HTTPSampler.response_timeout">${timeout}</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="false">
+            <boolProp name="autocommit">true</boolProp>
+            <stringProp name="checkQuery">Select 1</stringProp>
+            <stringProp name="connectionAge">5000</stringProp>
+            <stringProp name="dataSource">longtengserver</stringProp>
+            <stringProp name="dbUrl">jdbc:mysql://127.0.0.1:3306/longtengserver</stringProp>
+            <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
+            <boolProp name="keepAlive">true</boolProp>
+            <stringProp name="password">3.1415926</stringProp>
+            <stringProp name="poolMax">10</stringProp>
+            <stringProp name="timeout">10000</stringProp>
+            <stringProp name="transactionIsolation">DEFAULT</stringProp>
+            <stringProp name="trimInterval">60000</stringProp>
+            <stringProp name="username">root</stringProp>
+          </JDBCDataSource>
+          <hashTree/>
+          <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration_yace" enabled="true">
+            <stringProp name="dataSource">longtengserver</stringProp>
+            <stringProp name="poolMax">10</stringProp>
+            <stringProp name="timeout">10000</stringProp>
+            <stringProp name="trimInterval">60000</stringProp>
+            <boolProp name="autocommit">true</boolProp>
+            <stringProp name="transactionIsolation">DEFAULT</stringProp>
+            <boolProp name="keepAlive">true</boolProp>
+            <stringProp name="connectionAge">5000</stringProp>
+            <stringProp name="checkQuery">Select 1</stringProp>
+            <stringProp name="dbUrl">jdbc:mysql://114.141.173.17:3000/smart_hardware</stringProp>
+            <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
+            <stringProp name="username">garlic</stringProp>
+            <stringProp name="password">123456</stringProp>
+          </JDBCDataSource>
+          <hashTree/>
+        </hashTree>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie 管理器" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+          <stringProp name="CookieManager.implementation">org.apache.jmeter.protocol.http.control.HC4CookieHandler</stringProp>
+        </CookieManager>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="全局变量" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="checkDb" elementType="Argument">
+              <stringProp name="Argument.name">checkDb</stringProp>
+              <stringProp name="Argument.value">${checkDb}</stringProp>
+              <stringProp name="Argument.desc">是否检查数据库</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="domain" elementType="Argument">
+              <stringProp name="Argument.name">domain</stringProp>
+              <stringProp name="Argument.value">test.phicomm.com</stringProp>
+              <stringProp name="Argument.desc">服务器IP</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="port" elementType="Argument">
+              <stringProp name="Argument.name">port</stringProp>
+              <stringProp name="Argument.value">20010</stringProp>
+              <stringProp name="Argument.desc">端口</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="timeout" elementType="Argument">
+              <stringProp name="Argument.name">timeout</stringProp>
+              <stringProp name="Argument.value">5000</stringProp>
+              <stringProp name="Argument.desc">超时时间</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">phicomm-userId</stringProp>
+              <stringProp name="Header.value">66666661536321</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <objProp>
+            <name></name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>true</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="参数" enabled="true">
+          <stringProp name="filename">case.csv</stringProp>
+          <stringProp name="fileEncoding">GBK</stringProp>
+          <stringProp name="variableNames">interfaceName,protocol,urlPath,methodName,param,expect,checkDb,sql,DbMap</stringProp>
+          <stringProp name="delimiter">@</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">false</boolProp>
+          <boolProp name="stopThread">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+        </CSVDataSet>
+        <hashTree/>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="webservice" enabled="true">
+          <stringProp name="IfController.condition">&quot;${protocol}&quot;.equals(&quot;webservice&quot;)</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
+        <hashTree>
+          <ConfigTestElement guiclass="ObsoleteGui" testclass="ConfigTestElement" testname="${interfaceName}" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="SoapSampler.URL_DATA">${urlPath}</stringProp>
+            <stringProp name="HTTPSamper.xml_data">${param}</stringProp>
+            <stringProp name="SoapSampler.xml_data_file"></stringProp>
+            <stringProp name="SoapSampler.SOAP_ACTION"></stringProp>
+            <stringProp name="SoapSampler.SEND_SOAP_ACTION">false</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          </ConfigTestElement>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1959053965">${expect}</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">1</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree/>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="http请求_lcc" enabled="true">
+          <stringProp name="IfController.condition">&quot;${protocol}&quot;.equals(&quot;https&quot;)</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
+        <hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="get" enabled="true">
+            <stringProp name="IfController.condition">&quot;${methodName}&quot;.equals(&quot;get&quot;)</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+            <stringProp name="TestPlan.comments">for(Map m:results){
+		  		String dbMap = JSON.toJSONString(m);
+		  		log.info(&quot;数据库的json:&quot;+dbMap);
+		  		log.info(&quot;db&quot;+dbMap);
+		  		log.info(&quot;j&quot;+jsonIn);		
+		  		if(!ObjCompare.compare(predbMap, jsonIn)){
+		  			prev.setResponseCode(&quot;506&quot;);
+		  			prev.setSuccessful(false);
+		  			prev.setResponseMessage(&quot;(1)http协议层通过,响应代码:&quot;+code+&quot;, 响应数据：&quot;+result+&quot;;\n(2)数据库校验未通过,预期值:&quot;+predbMap+&quot;实际值：&quot;+dbMap);
+		  			prev.setResponseData(&quot;(1)http协议层通过,响应代码:&quot;+code+&quot;, 响应数据：&quot;+result+&quot;;\n(2)数据库校验未通过,预期值:&quot;+predbMap+&quot;实际值:&quot;+dbMap);  					        }
+		  	
+		  	}</stringProp>
+          </IfController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${interfaceName}" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf8</stringProp>
+              <stringProp name="HTTPSampler.path">${urlPath}?${param}</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="1959053965">${expect}</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <JDBCPostProcessor guiclass="TestBeanGUI" testclass="JDBCPostProcessor" testname="JDBC PostProcessor" enabled="true">
+                <stringProp name="dataSource">longtengserver</stringProp>
+                <stringProp name="queryType">Prepared Select Statement</stringProp>
+                <stringProp name="query">${sql}</stringProp>
+                <stringProp name="queryArguments"></stringProp>
+                <stringProp name="queryArgumentsTypes"></stringProp>
+                <stringProp name="variableNames"></stringProp>
+                <stringProp name="resultVariable">resultList</stringProp>
+                <stringProp name="queryTimeout"></stringProp>
+                <stringProp name="resultSetHandler">Store as Object</stringProp>
+              </JDBCPostProcessor>
+              <hashTree/>
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="parameters">${DbMap}</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="script">import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.phicomm.mobile.check.service.ObjCompare;
+String checkdb = vars.get(&quot;checkDb&quot;);
+log.info(checkdb);
+String result = prev.getResponseDataAsString();
+String code = prev.getResponseCode();
+log.info(result);
+log.info(code);
+  if(code.equals(&quot;200&quot;)){
+	if(checkdb.equals(&quot;True&quot;)){
+		log.info(&quot;进入校验数据库&quot;);
+		String predbMap = &quot;&quot;;
+		int paramSize = bsh.args.length;
+		if(paramSize&gt;0){
+		   predbMap = bsh.args[0];
+		  }else{
+		   predbMap = &quot;没有预期数据库结果!请仔细核对测试用例！&quot;;
+		  }
+		log.info(&quot;predbMap:&quot;+predbMap);
+		List results = vars.getObject(&quot;resultList&quot;);	
+	      if(results!=null){
+		  int size = results.size();
+		  if(size&gt;0){
+		  	log.info(&quot;进入到&quot;+size+&quot;了&quot;);
+		  	log.info(&quot;数据库的内容:&quot;+results);
+		  	
+		  	     String dbMap = JSONObject.toJSONString(results);
+		  		log.info(&quot;数据库的json格式:&quot;+dbMap);		
+		  		if(!ObjCompare.compare(dbMap,predbMap)){
+		  			prev.setResponseCode(&quot;506&quot;);
+		  			prev.setSuccessful(false);
+		  			prev.setResponseMessage(&quot;(1)http协议层通过,响应代码:&quot;+code+&quot;, 响应数据：&quot;+result+&quot;;\n(2)数据库校验未通过,预期值:&quot;+predbMap+&quot;实际值：&quot;+dbMap);
+		  			prev.setResponseData(&quot;(1)http协议层通过,响应代码:&quot;+code+&quot;, 响应数据：&quot;+result+&quot;;\n(2)数据库校验未通过,预期值:&quot;+predbMap+&quot;实际值:&quot;+dbMap);
+		  			}	
+		  }else{
+		  	log.info(&quot;数据库查询到结果集为空：&quot;+results);
+		  	prev.setResponseCode(&quot;507&quot;);
+		  	prev.setSuccessful(false);
+		  	prev.setResponseMessage(&quot;(1)http协议层通过,响应代码:&quot;+code+&quot;, 响应数据：&quot;+result+&quot;;\n(2)数据库校验未通过,查询到结果集为空&quot;+results);
+		  	prev.setResponseData(&quot;(1)http协议层通过,响应代码:&quot;+code+&quot;, 响应数据：&quot;+result+&quot;;\n(2)数据库校验未通过,查询到结果集为空&quot;+results);
+		  	}
+		}else{
+			log.info(&quot;数据库返回结果为null&quot;);
+			prev.setResponseCode(&quot;508&quot;);
+			prev.setSuccessful(false);
+			prev.setResponseMessage(&quot;(1)http协议层通过,响应代码:&quot;+code+&quot;, 响应数据：&quot;+result+&quot;;\n(2)数据库校验未通过,返回结果为null&quot;);
+			prev.setResponseData(&quot;(1)http协议层通过,响应代码:&quot;+code+&quot;, 响应数据：&quot;+result+&quot;;\n(2)数据库校验未通过,返回结果为null&quot;);
+}
+}
+	else{
+		log.info(&quot;不进行数据库校验&quot;);
+		}
+  }</stringProp>
+              </BeanShellPostProcessor>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="post" enabled="true">
+            <stringProp name="IfController.condition">&quot;${methodName}&quot;.equals(&quot;post&quot;)</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${interfaceName}" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">${param}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf8</stringProp>
+              <stringProp name="HTTPSampler.path">${urlPath}</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="1959053965">${expect}</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <JDBCPostProcessor guiclass="TestBeanGUI" testclass="JDBCPostProcessor" testname="JDBC PostProcessor" enabled="true">
+                <stringProp name="dataSource">longtengserver</stringProp>
+                <stringProp name="queryType">Prepared Select Statement</stringProp>
+                <stringProp name="query">${sql}</stringProp>
+                <stringProp name="queryArguments"></stringProp>
+                <stringProp name="queryArgumentsTypes"></stringProp>
+                <stringProp name="variableNames"></stringProp>
+                <stringProp name="resultVariable">resultList</stringProp>
+                <stringProp name="queryTimeout"></stringProp>
+                <stringProp name="resultSetHandler">Store as String</stringProp>
+              </JDBCPostProcessor>
+              <hashTree/>
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="parameters">${DbMap}</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="script">import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.phicomm.mobile.check.service.ObjCompare;
+String checkdb = vars.get(&quot;checkDb&quot;);
+log.info(checkdb);
+String result = prev.getResponseDataAsString();
+String code = prev.getResponseCode();
+log.info(result);
+log.info(code);
+  if(code.equals(&quot;200&quot;)){
+	if(checkdb.equals(&quot;True&quot;)){
+		log.info(&quot;进入校验数据库&quot;);
+		String predbMap = &quot;&quot;;
+		int paramSize = bsh.args.length;
+		if(paramSize&gt;0){
+		   predbMap = bsh.args[0];
+		  }else{
+		   predbMap = &quot;没有预期数据库结果!请仔细核对测试用例！&quot;;	
+		  }
+		log.info(&quot;predbMap:&quot;+predbMap);
+		List results = vars.getObject(&quot;resultList&quot;);	
+	      if(results!=null){
+		  int size = results.size();
+		  if(size&gt;0){
+		  	log.info(&quot;进入到&quot;+size+&quot;了&quot;);
+		  	log.info(&quot;数据库的内容:&quot;+results);
+		  	
+		  	     String dbMap = JSONObject.toJSONString(results);
+		  		log.info(&quot;数据库的json格式:&quot;+dbMap);		
+		  		if(!ObjCompare.compare(dbMap,predbMap)){
+		  			prev.setResponseCode(&quot;506&quot;);
+		  			prev.setSuccessful(false);
+		  			prev.setResponseMessage(&quot;(1)http协议层通过,响应代码:&quot;+code+&quot;, 响应数据：&quot;+result+&quot;;\n(2)数据库校验未通过,预期值:&quot;+predbMap+&quot;实际值：&quot;+dbMap);
+		  			prev.setResponseData(&quot;(1)http协议层通过,响应代码:&quot;+code+&quot;, 响应数据：&quot;+result+&quot;;\n(2)数据库校验未通过,预期值:&quot;+predbMap+&quot;实际值:&quot;+dbMap);
+					}
+		  }else{
+		  	log.info(&quot;数据库查询到结果集为空：&quot;+results);
+		  	prev.setResponseCode(&quot;507&quot;);
+		  	prev.setSuccessful(false);
+		  	prev.setResponseMessage(&quot;(1)http协议层通过,响应代码:&quot;+code+&quot;, 响应数据：&quot;+result+&quot;;\n(2)数据库校验未通过,查询到结果集为空&quot;+results);
+		  	prev.setResponseData(&quot;(1)http协议层通过,响应代码:&quot;+code+&quot;, 响应数据：&quot;+result+&quot;;\n(2)数据库校验未通过,查询到结果集为空&quot;+results);
+		  	}
+		}else{
+			log.info(&quot;数据库返回结果为null&quot;);
+			prev.setResponseCode(&quot;508&quot;);
+			prev.setSuccessful(false);
+			prev.setResponseMessage(&quot;(1)http协议层通过,响应代码:&quot;+code+&quot;, 响应数据：&quot;+result+&quot;;\n(2)数据库校验未通过,返回结果为null&quot;);
+			prev.setResponseData(&quot;(1)http协议层通过,响应代码:&quot;+code+&quot;, 响应数据：&quot;+result+&quot;;\n(2)数据库校验未通过,返回结果为null&quot;);
+		}
+		}
+	else{
+		log.info(&quot;不进行数据库校验&quot;);
+		}
+  }</stringProp>
+              </BeanShellPostProcessor>
+              <hashTree/>
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="false">
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="parameters">${DbMap}</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="script">import com.alibaba.fastjson.JSON;
+String checkdb = vars.get(&quot;checkDb&quot;);
+log.info(checkdb);
+String result = prev.getResponseDataAsString();
+String code = prev.getResponseCode();
+log.info(result);
+log.info(code);
+  if(code.equals(&quot;200&quot;)){
+	if(checkdb.equals(&quot;True&quot;)){
+		log.info(&quot;进入校验数据库&quot;);
+		String predbMap = &quot;&quot;;
+		int paramSize = bsh.args.length;
+		if(paramSize&gt;0){
+		   predbMap = bsh.args[0];
+		  }else{
+		   predbMap = &quot;没有预期数据库结果!请仔细核对测试用例！&quot;;	
+		  }
+		log.info(&quot;predbMap:&quot;+predbMap);
+		List results = vars.getObject(&quot;resultList&quot;);
+		log.info(&quot;results的size:&quot;+results);
+	      if(results!=null){
+		  int size = results.size();
+		  if(size&gt;0){
+		  	log.info(&quot;进入到size了&quot;);
+		  	for(Map m:results){
+		  		String dbMap = JSON.toJSONString(m);
+		  		log.info(&quot;数据库的json:&quot;+dbMap);
+		  		if(!predbMap.equalsIgnoreCase(dbMap)){
+		  			prev.setResponseCode(&quot;506&quot;);
+		  			prev.setSuccessful(false);
+		  			prev.setResponseMessage(&quot;(1)http协议层响应代码:&quot;+code+&quot;, 响应数据：&quot;+result+&quot;;\n(2)数据库校验未通过,预期值:&quot;+predbMap+&quot;实际值：&quot;+dbMap);
+		  			prev.setResponseData(&quot;(1)http协议层响应代码:&quot;+code+&quot;, 响应数据：&quot;+result+&quot;;\n(2)数据库校验未通过,预期值:&quot;+predbMap+&quot;实际值:&quot;+dbMap);  					        }
+		  	
+		  	}
+		  }else{
+		  	log.info(&quot;数据库查询到结果集为空：&quot;+results);
+		  	prev.setResponseCode(&quot;507&quot;);
+		  	prev.setSuccessful(false);
+		  	prev.setResponseMessage(&quot;(1)http协议层响应代码:&quot;+code+&quot;, 响应数据：&quot;+result+&quot;;\n(2)数据库查询到结果集为空&quot;+results);
+		  	prev.setResponseData(&quot;(1)http协议层响应代码:&quot;+code+&quot;, 响应数据：&quot;+result+&quot;;\n(2)数据库查询到结果集为空&quot;+results);
+		  	}
+		}else{
+			log.info(&quot;数据库返回结果为null&quot;);
+			prev.setResponseCode(&quot;508&quot;);
+			prev.setSuccessful(false);
+			prev.setResponseMessage(&quot;(1)http协议层响应代码:&quot;+code+&quot;, 响应数据：&quot;+result+&quot;;\n(2)数据库返回结果为null&quot;);
+			prev.setResponseData(&quot;(1)http协议层响应代码:&quot;+code+&quot;, 响应数据：&quot;+result+&quot;;\n(2)数据库返回结果为null&quot;);
+		}
+		}
+	else{
+		log.info(&quot;不进行数据库校验&quot;);
+		}
+  }</stringProp>
+              </BeanShellPostProcessor>
+              <hashTree/>
+              <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell断言" enabled="false">
+                <stringProp name="BeanShellAssertion.query">import com.jayway.jsonpath.JsonPath;
+import java.util.ArrayList;
+import java.util.List;
+//String result = prev.getResponseDataAsString();
+//String expect = vars.get(&quot;expect&quot;);
+String result = &quot;{&quot; +
+            &quot;    \&quot;code\&quot;:200,&quot; +
+            &quot;    \&quot;data\&quot;: {&quot; +
+            &quot;        \&quot;dataList\&quot;: [&quot; +
+            &quot;            {&quot; +
+            &quot;                \&quot;currency\&quot;: \&quot;USD\&quot;,&quot; +
+            &quot;                \&quot;iPrice\&quot;: 12&quot; +
+            &quot;            },&quot; +
+            &quot;            {&quot; +
+            &quot;                \&quot;currency\&quot;: \&quot;CNY\&quot;,&quot; +
+            &quot;                \&quot;iPrice\&quot;: 56&quot; +
+            &quot;            }&quot; +
+            &quot;        ],&quot; +
+            &quot;    },&quot; +
+            &quot;    \&quot;success\&quot;: true&quot; +
+            &quot;}&quot;;
+    String expect = &quot;$.code=2001&amp;$.data.dataList[0].currency=USD&quot;;
+    String[] exp = expect.split(&quot;&amp;&quot;);
+    String[] expp ;
+    String change = null;
+    List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+    for(String s:exp){
+        expp = s.split(&quot;=&quot;);
+
+        if(JsonPath.read(result,expp[0]) instanceof Integer) {
+             change = String.valueOf(JsonPath.read(result,expp[0]));
+        }
+        if(JsonPath.read(result,expp[0]) instanceof String) {
+            change = JsonPath.read(result,expp[0]);
+        }
+        if(JsonPath.read(result,expp[0]) instanceof Boolean) {
+            change = JsonPath.read(result,expp[0]).toString();
+        }
+        if(!change.equals(expp[1])){
+                 list.add(&quot;实际是:&quot;+change+&quot; 预期是:&quot;+expp[1]);
+
+        }else{
+            System.out.println(s);
+        };
+
+      }
+       for(String s:list){
+           System.out.println(s);
+           log.info(s);
+       }
+</stringProp>
+                <stringProp name="BeanShellAssertion.filename"></stringProp>
+                <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+              </BeanShellAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="线程组" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1483079925000</longProp>
+        <longProp name="ThreadGroup.end_time">1483079925000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="仅一次控制器" enabled="true"/>
+        <hashTree>
+          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell断言" enabled="false">
+            <stringProp name="BeanShellAssertion.query">import com.jayway.jsonpath.JsonPath;
+import java.util.ArrayList;
+import java.util.List;
+//String result = prev.getResponseDataAsString();
+//String expect = vars.get(&quot;expect&quot;);
+String result = &quot;{&quot; +
+            &quot;    \&quot;code\&quot;:200,&quot; +
+            &quot;    \&quot;data\&quot;: {&quot; +
+            &quot;        \&quot;dataList\&quot;: [&quot; +
+            &quot;            {&quot; +
+            &quot;                \&quot;currency\&quot;: \&quot;USD\&quot;,&quot; +
+            &quot;                \&quot;iPrice\&quot;: 12&quot; +
+            &quot;            },&quot; +
+            &quot;            {&quot; +
+            &quot;                \&quot;currency\&quot;: \&quot;CNY\&quot;,&quot; +
+            &quot;                \&quot;iPrice\&quot;: 56&quot; +
+            &quot;            }&quot; +
+            &quot;        ],&quot; +
+            &quot;    },&quot; +
+            &quot;    \&quot;success\&quot;: true&quot; +
+            &quot;}&quot;;
+    String expect = &quot;$.code=2001&amp;$.data.dataList[0].currency=USD&quot;;
+    String[] exp = expect.split(&quot;&amp;&quot;);
+    String[] expp ;
+    String change = null;
+    List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+    for(String s:exp){
+        expp = s.split(&quot;=&quot;);
+
+        if(JsonPath.read(result,expp[0]) instanceof Integer) {
+             change = String.valueOf(JsonPath.read(result,expp[0]));
+        }
+        if(JsonPath.read(result,expp[0]) instanceof String) {
+            change = JsonPath.read(result,expp[0]);
+        }
+        if(JsonPath.read(result,expp[0]) instanceof Boolean) {
+            change = JsonPath.read(result,expp[0]).toString();
+        }
+        if(!change.equals(expp[1])){
+            list.add(&quot;实际是:&quot;+change+&quot; 预期是:&quot;+expp[1]);
+
+        }else{
+            System.out.println(s);
+        }
+
+      }
+       for(String s:list){
+           System.out.println(s);
+           log.info(s);
+       }
+</stringProp>
+            <stringProp name="BeanShellAssertion.filename"></stringProp>
+            <stringProp name="BeanShellAssertion.parameters"></stringProp>
+            <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+          </BeanShellAssertion>
+          <hashTree/>
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="BeanShell Sampler" enabled="false">
+            <stringProp name="BeanShellSampler.query">import com.jayway.jsonpath.JsonPath;
+import com.alibaba.fastjson.JSON;
+import java.util.ArrayList;
+import java.util.List;
+
+
+//String result = prev.getResponseDataAsString();
+//String expect = vars.get(&quot;expect&quot;);
+String result = &quot;{&quot; +
+            &quot;    \&quot;code\&quot;:200,&quot; +
+            &quot;    \&quot;data\&quot;: {&quot; +
+            &quot;        \&quot;dataList\&quot;: [&quot; +
+            &quot;            {&quot; +
+            &quot;                \&quot;currency\&quot;: \&quot;USD\&quot;,&quot; +
+            &quot;                \&quot;iPrice\&quot;: 12&quot; +
+            &quot;            },&quot; +
+            &quot;            {&quot; +
+            &quot;                \&quot;currency\&quot;: \&quot;CNY\&quot;,&quot; +
+            &quot;                \&quot;iPrice\&quot;: 56&quot; +
+            &quot;            }&quot; +
+            &quot;        ],&quot; +
+            &quot;    },&quot; +
+            &quot;    \&quot;success\&quot;: true&quot; +
+            &quot;}&quot;;
+    String expect = &quot;$.code=2001&amp;$.data.dataList[0].currency=USD&quot;;
+    String[] exp = expect.split(&quot;&amp;&quot;);
+    String[] expp ;
+    String change = null;
+    List list = new ArrayList();
+    for(String s:exp){
+        expp = s.split(&quot;=&quot;);
+
+        if(JsonPath.read(result,expp[0]) instanceof Integer) {
+             change = String.valueOf(JsonPath.read(result,expp[0]));
+        }
+        if(JsonPath.read(result,expp[0]) instanceof String) {
+            change = JsonPath.read(result,expp[0]);
+        }
+        if(JsonPath.read(result,expp[0]) instanceof Boolean) {
+            change = JsonPath.read(result,expp[0]).toString();
+        }
+        if(!change.equals(expp[1])){
+                 list.add(&quot;实际是:&quot;+change+&quot; 预期是:&quot;+expp[1]);
+
+        }else{
+            System.out.println(s);
+        };
+
+      }
+       for(String s:list){
+           System.out.println(s);
+           log.info(s);
+       }
+</stringProp>
+            <stringProp name="BeanShellSampler.filename"></stringProp>
+            <stringProp name="BeanShellSampler.parameters"></stringProp>
+            <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+          </BeanShellSampler>
+          <hashTree/>
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="BeanShell Sampler" enabled="true">
+            <stringProp name="BeanShellSampler.query">import com.jayway.jsonpath.JsonPath;
+import java.util.ArrayList;
+import java.util.List;
+String result =&quot;{\&quot;code\&quot;:200,\&quot;success\&quot;: true}&quot;;
+//log.info(JsonPath.read(result,&quot;$.code&quot;));
+log.info(JsonPath.isPathDefinite(&quot;?8&quot;).toString());
+</stringProp>
+            <stringProp name="BeanShellSampler.filename"></stringProp>
+            <stringProp name="BeanShellSampler.parameters"></stringProp>
+            <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+          </BeanShellSampler>
+          <hashTree/>
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="BeanShell Sampler" enabled="false">
+            <stringProp name="BeanShellSampler.query">import com.alibaba.fastjson.JSON;
+import java.util.ArrayList;
+import java.util.List;  
+List mylist = new ArrayList();
+        mylist.add(&quot;12&quot;);
+        mylist.add(&quot;22&quot;);
+        String liststr = JSON.toJSONString(mylist);
+        System.out.println(liststr);
+        log.info(liststr);
+        List list1 = (List)JSON.parseArray(liststr);
+
+        String[] ss1 = new String[2];
+        ss1[0] = &quot;abc&quot;;
+        ss1[1] = &quot;bcd&quot;;
+        String arraystr = JSON.toJSONString(ss1);
+        System.out.println(arraystr);
+        log.info(arraystr);
+        List ss2 = (List)JSON.parseArray(arraystr); 
+
+
+
+        List  list = new ArrayList();
+        list.add(&quot;lichengcheng&quot;);
+        list.add(&quot;chengcheng&quot;);
+        for(String s:list){
+            log.info(s);
+        }
+
+</stringProp>
+            <stringProp name="BeanShellSampler.filename"></stringProp>
+            <stringProp name="BeanShellSampler.parameters"></stringProp>
+            <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+          </BeanShellSampler>
+          <hashTree/>
+          <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java请求" enabled="false">
+            <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="Sleep_Time" elementType="Argument">
+                  <stringProp name="Argument.name">Sleep_Time</stringProp>
+                  <stringProp name="Argument.value">100</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="Sleep_Mask" elementType="Argument">
+                  <stringProp name="Argument.name">Sleep_Mask</stringProp>
+                  <stringProp name="Argument.value">0xFF</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="Label" elementType="Argument">
+                  <stringProp name="Argument.name">Label</stringProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="ResponseCode" elementType="Argument">
+                  <stringProp name="Argument.name">ResponseCode</stringProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="ResponseMessage" elementType="Argument">
+                  <stringProp name="Argument.name">ResponseMessage</stringProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="Status" elementType="Argument">
+                  <stringProp name="Argument.name">Status</stringProp>
+                  <stringProp name="Argument.value">OK</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="SamplerData" elementType="Argument">
+                  <stringProp name="Argument.name">SamplerData</stringProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="ResultData" elementType="Argument">
+                  <stringProp name="Argument.name">ResultData</stringProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="classname">org.apache.jmeter.protocol.java.test.JavaTest</stringProp>
+          </JavaSampler>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script"> import java.util.*;
+ List list = new ArrayList();
+ list.add(&quot;aa&quot;);
+log.info(&quot;ss&quot;);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="工作台" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>
